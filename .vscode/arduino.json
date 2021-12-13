@@ -1,6 +1,7 @@
 {
-    "port": "COM3",
-    "board": "arduino:avr:uno",
-    "programmer": "arduino:avrisp",
-    "sketch": "useless-box.ino"
+    "port": "COM5",
+    "board": "arduino:megaavr:nona4809",
+    "programmer": "arduino:medbg",
+    "sketch": "UselessBox.ino",
+    "configuration": "mode=off"
 }
