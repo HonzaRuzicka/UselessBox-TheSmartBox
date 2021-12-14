@@ -67,14 +67,14 @@ void loop() {
 }
 
 void run() {
-  switch (playCount % 1) {
+  switch (playCount % 2) {
     case 0:
       Serial.println("Case-0");
-      runSlowvyko();
+      runSlowVyko();
       break;
     case 1:
       Serial.println("Case-1");
-      runSlowprepinac();
+      runSlowPrepinac();
       break;
     default:
       break;
@@ -83,46 +83,46 @@ void run() {
   playCount++;
 }
 
-void runSlowvyko() {
+void runSlowVyko() {
   Serial.println("runSlow-vyko");
-  openLidSlow();
+  openVykoSlow();
   delay(1000);
-  closeLidSlow();
+  closeVykoSlow();
 }
 
-void runSlowprepinac() {
+void runSlowPrepinac() {
   Serial.println("runSlow-prepinac");
-  openSwitchSlow();
-  closeSwitchSlow();
+  openPrepinacSlow();
+  closePrepinacSlow();
 }
 
 
-void openLidSlow() {
-  Serial.println("OpenLidSlow");
+void openVykoSlow() {
+  Serial.println("OpenVykoSlow");
   for (int pos = VYKO_START_POSITION; pos >= VYKO_END_POSITION; pos -= 1) { 
     vykoServo.write(pos);  
     delay(10);
   }
 }
 
-void closeLidSlow() {
-  Serial.println("CloseLidSlow");
+void closeVykoSlow() {
+  Serial.println("CloseVykoSlow");
   for (int pos = VYKO_END_POSITION; pos <= VYKO_START_POSITION; pos += 1) { 
     vykoServo.write(pos);  
     delay(10);
   }
 }
 
-void openSwitchSlow() {
-  Serial.println("OpenSwitchSlow");
+void openPrepinacSlow() {
+  Serial.println("OpenPrepinacSlow");
   for (int pos = PREPINAC_START_POSITION; pos <= PREPINAC_END_POSITION; pos += 1) { 
     prepinacServo.write(pos);  
     delay(10);
   }
 }
 
-void closeSwitchSlow() {
-  Serial.println("CloseSwitchSlow");
+void closePrepinacSlow() {
+  Serial.println("ClosePrepinacSlow");
   for (int pos = PREPINAC_END_POSITION; pos >= PREPINAC_START_POSITION; pos -= 1) { 
     prepinacServo.write(pos);  
     delay(10);
